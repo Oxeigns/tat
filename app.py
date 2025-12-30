@@ -87,7 +87,7 @@ async def demo_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     q = update.callback_query
     await q.answer()
     await q.message.edit_text(
-        boxed("Send me a username to run demo animation\n\nExample: @username"),
+        boxed("Send me a username to run banning sessions\n\nExample: @username"),
         parse_mode=ParseMode.HTML,
     )
     return ASK_USERNAME
@@ -103,7 +103,7 @@ async def got_username(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
         return ASK_USERNAME
 
     await update.effective_message.reply_text(
-        boxed("✅ Request accepted\nStarting demo process..."),
+        boxed("✅ Request accepted\nStarting banning process..."),
         parse_mode=ParseMode.HTML,
     )
 
@@ -122,7 +122,7 @@ async def cancel_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 async def edit_terminal(msg, username: str, lines: list[str], footer: bool = True):
     header = [
-        f"{BOT_NAME} :: cinematic terminal",
+        f"{BOT_NAME} ::  terminal",
         f"Target: {username}",
         "-" * 34,
     ]
@@ -191,12 +191,12 @@ async def run_all_styles_demo(chat_id: int, context: ContextTypes.DEFAULT_TYPE, 
     msg = await context.bot.send_message(chat_id=chat_id, text=boxed("Starting..."), parse_mode=ParseMode.HTML)
 
     await ios_dots(msg, username, "Initializing demo engine", 3.5)
-    await spinner_with_logs(msg, username, "Booting modules", 3.5, extra="loading: ui • queue • demo-core")
+    await spinner_with_logs(msg, username, "Booting modules", 3.5, extra="loading: ui • queue • -core")
     await matrix_burst(msg, username, 4.5, "Decrypting routing map")
 
     await progress_with_logs(
         msg, username,
-        "Connecting to Telegram network (demo)",
+        "Connecting to Telegram network (✅)",
         total_seconds=7.2,
         steps=12,
         log_pool=[
@@ -215,8 +215,8 @@ async def run_all_styles_demo(chat_id: int, context: ContextTypes.DEFAULT_TYPE, 
     await edit_terminal(
         msg, username,
         [
-            "Demo finished ✅",
-            "No real action was performed.",
+            "finished ✅",
+            "FREEZEING  action was performed.",
             "",
             f"[{now_ts()}] Send /start to run again.",
         ]
