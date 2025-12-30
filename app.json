@@ -1,0 +1,34 @@
+{
+  "name": "telegram-polling-bot",
+  "description": "Telegram bot using python-telegram-bot 20.7 (polling mode, no webhooks)",
+  "repository": "https://github.com/yourusername/your-repo",
+  "keywords": ["telegram", "bot", "python", "polling"],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token from @BotFather",
+      "required": true
+    },
+    "BOT_NAME": {
+      "description": "Bot display name",
+      "required": false,
+      "value": "Demo Bot"
+    },
+    "CREDIT": {
+      "description": "Credit text shown in bot",
+      "required": false,
+      "value": "YourName"
+    },
+    "DEMO_TAG": {
+      "description": "Footer / demo tag text",
+      "required": false,
+      "value": "DEMO ONLY • NO REAL ACTIONS"
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "stack": "heroku-22"
+}
